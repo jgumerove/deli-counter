@@ -4,15 +4,18 @@ katz_deli = []
 def line(katz_deli)
 	if katz_deli.empty?
 		puts "The line is currently empty."
-	else katz_deli.each_with_index do |name, index|
+	else 
+		message= "The line is currently:"
 
-		katz_deli << "The line is currently: #{index + 1}. #{name}"
-		
+		katz_deli.each_with_index do |value, index|
+		  message += " #{index.to_i+1}. #{value}"
+		end
+	
+		puts "#{message}"
 	end
-	puts katz_deli.join
+	
 end
 
-end
 
 def take_a_number(katz_deli, name)
 	katz_deli.push(name)
@@ -24,7 +27,7 @@ def now_serving(katz_deli)
 	if katz_deli.empty?
 		puts "There is nobody waiting to be served!"
 	else
-		serving = katz_deli[0]
+		serving = katz_deli.first
 		puts "Currently serving #{serving}."
 		katz_deli.shift
 	end
